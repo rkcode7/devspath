@@ -383,6 +383,445 @@ const RoadmapDetail = () => {
         exercisesDone: '50 of 100',
         quizScore: '80%'
       }
+    },
+    'mobile-development': {
+      title: 'Mobile App Development Roadmap',
+      description: 'Your guide to building iOS and Android applications in 2024. Covers React Native, Flutter, and native development!',
+      estimatedTime: '8-10 months',
+      difficulty: 'Intermediate',
+      topics: [
+        {
+          id: 'mobile-fundamentals',
+          title: 'Mobile Development Fundamentals',
+          description: 'Understand mobile app architecture, platform differences, and development principles.',
+          difficulty: 'Beginner',
+          estimatedTime: '2-3 weeks',
+          resources: 12
+        },
+        {
+          id: 'react-native',
+          title: 'React Native Development',
+          description: 'Build cross-platform mobile apps using React Native and JavaScript.',
+          difficulty: 'Intermediate',
+          estimatedTime: '4-6 weeks',
+          resources: 20
+        },
+        {
+          id: 'flutter',
+          title: 'Flutter Development',
+          description: 'Create beautiful native apps with Flutter and Dart programming language.',
+          difficulty: 'Intermediate',
+          estimatedTime: '4-6 weeks',
+          resources: 18
+        },
+        {
+          id: 'native-ios',
+          title: 'Native iOS Development',
+          description: 'Build iOS apps using Swift and Xcode with native iOS frameworks.',
+          difficulty: 'Advanced',
+          estimatedTime: '6-8 weeks',
+          resources: 22
+        },
+        {
+          id: 'native-android',
+          title: 'Native Android Development',
+          description: 'Develop Android apps using Kotlin and Android Studio with native Android SDKs.',
+          difficulty: 'Advanced',
+          estimatedTime: '6-8 weeks',
+          resources: 24
+        },
+        {
+          id: 'mobile-ui-ux',
+          title: 'Mobile UI/UX Design',
+          description: 'Design intuitive and beautiful mobile interfaces following platform guidelines.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 15
+        },
+        {
+          id: 'app-store-deployment',
+          title: 'App Store Deployment',
+          description: 'Deploy and publish your mobile apps to App Store and Google Play Store.',
+          difficulty: 'Intermediate',
+          estimatedTime: '1-2 weeks',
+          resources: 10
+        }
+      ],
+      completionRate: '68%',
+      learners: '940K',
+      rating: 4.7,
+      reviews: 4250,
+      lastUpdated: 'January 2024',
+      category: 'Mobile Development',
+      skillsGained: [
+        'React Native', 'Flutter', 'Swift', 'Kotlin', 'Mobile UI/UX', 'App Store Deployment', 'Cross-platform Development'
+      ],
+      relatedRoadmaps: [
+        { id: 'frontend', title: 'Frontend Development Roadmap', difficulty: 'Intermediate' },
+        { id: 'ui-ux-designer', title: 'UI/UX Designer Roadmap', difficulty: 'Intermediate' },
+        { id: 'fullstack', title: 'Fullstack Development Roadmap', difficulty: 'Advanced' }
+      ],
+      stats: {
+        timeSpent: '180 hours',
+        exercisesDone: '35 of 70',
+        quizScore: '82%'
+      }
+    },
+    'data-scientist': {
+      title: 'Data Science Roadmap',
+      description: 'Your path to becoming a Data Scientist in 2024. Covers Python, Machine Learning, Statistics, and more!',
+      estimatedTime: '9-12 months',
+      difficulty: 'Advanced',
+      topics: [
+        {
+          id: 'python-for-data-science',
+          title: 'Python for Data Science',
+          description: 'Master Python programming fundamentals and data science libraries.',
+          difficulty: 'Beginner',
+          estimatedTime: '3-4 weeks',
+          resources: 20
+        },
+        {
+          id: 'statistics-fundamentals',
+          title: 'Statistics & Probability',
+          description: 'Learn statistical concepts essential for data analysis and machine learning.',
+          difficulty: 'Intermediate',
+          estimatedTime: '4-6 weeks',
+          resources: 18
+        },
+        {
+          id: 'data-manipulation',
+          title: 'Data Manipulation with Pandas',
+          description: 'Clean, transform, and analyze data using Pandas and NumPy.',
+          difficulty: 'Intermediate',
+          estimatedTime: '3-4 weeks',
+          resources: 16
+        },
+        {
+          id: 'data-visualization',
+          title: 'Data Visualization',
+          description: 'Create compelling visualizations using Matplotlib, Seaborn, and Plotly.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 14
+        },
+        {
+          id: 'machine-learning',
+          title: 'Machine Learning Algorithms',
+          description: 'Implement and understand machine learning algorithms using Scikit-learn.',
+          difficulty: 'Advanced',
+          estimatedTime: '6-8 weeks',
+          resources: 25
+        },
+        {
+          id: 'deep-learning',
+          title: 'Deep Learning with TensorFlow',
+          description: 'Build neural networks and deep learning models for complex problems.',
+          difficulty: 'Advanced',
+          estimatedTime: '4-6 weeks',
+          resources: 22
+        },
+        {
+          id: 'sql-databases',
+          title: 'SQL & Database Management',
+          description: 'Query databases efficiently and manage large datasets.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 12
+        },
+        {
+          id: 'big-data-tools',
+          title: 'Big Data Tools',
+          description: 'Work with big data using Apache Spark, Hadoop, and cloud platforms.',
+          difficulty: 'Advanced',
+          estimatedTime: '3-4 weeks',
+          resources: 15
+        }
+      ],
+      completionRate: '58%',
+      learners: '1.1M',
+      rating: 4.8,
+      reviews: 6180,
+      lastUpdated: 'January 2024',
+      category: 'Data Science',
+      skillsGained: [
+        'Python', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'SQL', 'Statistics', 'Machine Learning', 'Data Visualization'
+      ],
+      relatedRoadmaps: [
+        { id: 'ai-ml-engineer', title: 'AI/ML Engineer Roadmap', difficulty: 'Advanced' },
+        { id: 'backend', title: 'Backend Development Roadmap', difficulty: 'Intermediate' },
+        { id: 'python-developer', title: 'Python Developer Roadmap', difficulty: 'Intermediate' }
+      ],
+      stats: {
+        timeSpent: '220 hours',
+        exercisesDone: '45 of 90',
+        quizScore: '88%'
+      }
+    },
+    'cybersecurity': {
+      title: 'Cybersecurity Specialist Roadmap',
+      description: 'Your guide to becoming a Cybersecurity Expert in 2024. Covers ethical hacking, security tools, and defense strategies!',
+      estimatedTime: '8-10 months',
+      difficulty: 'Advanced',
+      topics: [
+        {
+          id: 'security-fundamentals',
+          title: 'Cybersecurity Fundamentals',
+          description: 'Learn core security concepts, threats, and defense principles.',
+          difficulty: 'Beginner',
+          estimatedTime: '2-3 weeks',
+          resources: 15
+        },
+        {
+          id: 'network-security',
+          title: 'Network Security',
+          description: 'Secure networks using firewalls, VPNs, and intrusion detection systems.',
+          difficulty: 'Intermediate',
+          estimatedTime: '4-6 weeks',
+          resources: 20
+        },
+        {
+          id: 'ethical-hacking',
+          title: 'Ethical Hacking & Penetration Testing',
+          description: 'Learn to think like an attacker to better defend systems.',
+          difficulty: 'Advanced',
+          estimatedTime: '6-8 weeks',
+          resources: 25
+        },
+        {
+          id: 'cryptography',
+          title: 'Cryptography & PKI',
+          description: 'Understand encryption, digital signatures, and public key infrastructure.',
+          difficulty: 'Advanced',
+          estimatedTime: '3-4 weeks',
+          resources: 18
+        },
+        {
+          id: 'incident-response',
+          title: 'Incident Response & Forensics',
+          description: 'Handle security incidents and perform digital forensics investigations.',
+          difficulty: 'Advanced',
+          estimatedTime: '3-4 weeks',
+          resources: 16
+        },
+        {
+          id: 'security-tools',
+          title: 'Security Tools & Technologies',
+          description: 'Master industry-standard security tools like Wireshark, Metasploit, and Nmap.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 22
+        },
+        {
+          id: 'compliance-governance',
+          title: 'Compliance & Governance',
+          description: 'Understand security frameworks, regulations, and compliance requirements.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 12
+        }
+      ],
+      completionRate: '71%',
+      learners: '520K',
+      rating: 4.9,
+      reviews: 3420,
+      lastUpdated: 'January 2024',
+      category: 'Cybersecurity',
+      skillsGained: [
+        'Network Security', 'Penetration Testing', 'Cryptography', 'Incident Response', 'Security Tools', 'Compliance', 'Ethical Hacking'
+      ],
+      relatedRoadmaps: [
+        { id: 'devops', title: 'DevOps Roadmap', difficulty: 'Advanced' },
+        { id: 'backend', title: 'Backend Development Roadmap', difficulty: 'Intermediate' },
+        { id: 'cloud-architect', title: 'Cloud Architecture Roadmap', difficulty: 'Advanced' }
+      ],
+      stats: {
+        timeSpent: '190 hours',
+        exercisesDone: '40 of 80',
+        quizScore: '91%'
+      }
+    },
+    'ai-ml-engineer': {
+      title: 'AI/ML Engineer Roadmap',
+      description: 'Your path to becoming an AI/ML Engineer in 2024. Covers Machine Learning, Deep Learning, and AI systems!',
+      estimatedTime: '10-14 months',
+      difficulty: 'Expert',
+      topics: [
+        {
+          id: 'ml-fundamentals',
+          title: 'Machine Learning Fundamentals',
+          description: 'Master the mathematical foundations and core concepts of machine learning.',
+          difficulty: 'Intermediate',
+          estimatedTime: '4-6 weeks',
+          resources: 22
+        },
+        {
+          id: 'python-ml-stack',
+          title: 'Python ML Stack',
+          description: 'Master Python libraries for machine learning: NumPy, Pandas, Scikit-learn.',
+          difficulty: 'Intermediate',
+          estimatedTime: '3-4 weeks',
+          resources: 18
+        },
+        {
+          id: 'deep-learning-frameworks',
+          title: 'Deep Learning Frameworks',
+          description: 'Build neural networks using TensorFlow and PyTorch.',
+          difficulty: 'Advanced',
+          estimatedTime: '6-8 weeks',
+          resources: 25
+        },
+        {
+          id: 'computer-vision',
+          title: 'Computer Vision',
+          description: 'Process and analyze images using CNNs and computer vision techniques.',
+          difficulty: 'Advanced',
+          estimatedTime: '4-6 weeks',
+          resources: 20
+        },
+        {
+          id: 'natural-language-processing',
+          title: 'Natural Language Processing',
+          description: 'Work with text data using NLP techniques and transformer models.',
+          difficulty: 'Advanced',
+          estimatedTime: '4-6 weeks',
+          resources: 22
+        },
+        {
+          id: 'mlops',
+          title: 'MLOps & Model Deployment',
+          description: 'Deploy and monitor machine learning models in production.',
+          difficulty: 'Advanced',
+          estimatedTime: '3-4 weeks',
+          resources: 18
+        },
+        {
+          id: 'ai-ethics',
+          title: 'AI Ethics & Responsible AI',
+          description: 'Understand bias, fairness, and ethical considerations in AI systems.',
+          difficulty: 'Intermediate',
+          estimatedTime: '1-2 weeks',
+          resources: 10
+        },
+        {
+          id: 'advanced-ai',
+          title: 'Advanced AI Topics',
+          description: 'Explore cutting-edge AI research including GANs, reinforcement learning, and LLMs.',
+          difficulty: 'Expert',
+          estimatedTime: '6-8 weeks',
+          resources: 28
+        }
+      ],
+      completionRate: '54%',
+      learners: '780K',
+      rating: 4.8,
+      reviews: 4920,
+      lastUpdated: 'January 2024',
+      category: 'AI & Machine Learning',
+      skillsGained: [
+        'Python', 'TensorFlow', 'PyTorch', 'Deep Learning', 'NLP', 'Computer Vision', 'MLOps', 'AI Ethics'
+      ],
+      relatedRoadmaps: [
+        { id: 'data-scientist', title: 'Data Science Roadmap', difficulty: 'Advanced' },
+        { id: 'python-developer', title: 'Python Developer Roadmap', difficulty: 'Intermediate' },
+        { id: 'devops', title: 'DevOps Roadmap', difficulty: 'Advanced' }
+      ],
+      stats: {
+        timeSpent: '280 hours',
+        exercisesDone: '60 of 120',
+        quizScore: '86%'
+      }
+    },
+    'ui-ux-designer': {
+      title: 'UI/UX Designer Roadmap',
+      description: 'Your guide to becoming a UI/UX Designer in 2024. Covers design principles, tools, and user research!',
+      estimatedTime: '5-7 months',
+      difficulty: 'Progressive',
+      topics: [
+        {
+          id: 'design-fundamentals',
+          title: 'Design Fundamentals',
+          description: 'Learn color theory, typography, layout principles, and visual hierarchy.',
+          difficulty: 'Beginner',
+          estimatedTime: '2-3 weeks',
+          resources: 15
+        },
+        {
+          id: 'user-research',
+          title: 'User Research & Analysis',
+          description: 'Conduct user interviews, surveys, and analyze user behavior.',
+          difficulty: 'Intermediate',
+          estimatedTime: '3-4 weeks',
+          resources: 18
+        },
+        {
+          id: 'wireframing-prototyping',
+          title: 'Wireframing & Prototyping',
+          description: 'Create wireframes and interactive prototypes using industry tools.',
+          difficulty: 'Intermediate',
+          estimatedTime: '3-4 weeks',
+          resources: 20
+        },
+        {
+          id: 'design-tools',
+          title: 'Design Tools Mastery',
+          description: 'Master Figma, Adobe XD, Sketch, and other essential design tools.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 16
+        },
+        {
+          id: 'interaction-design',
+          title: 'Interaction Design',
+          description: 'Design smooth interactions, animations, and micro-interactions.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 14
+        },
+        {
+          id: 'design-systems',
+          title: 'Design Systems',
+          description: 'Build scalable design systems and component libraries.',
+          difficulty: 'Advanced',
+          estimatedTime: '3-4 weeks',
+          resources: 18
+        },
+        {
+          id: 'usability-testing',
+          title: 'Usability Testing',
+          description: 'Plan and conduct usability tests to validate design decisions.',
+          difficulty: 'Intermediate',
+          estimatedTime: '2-3 weeks',
+          resources: 12
+        },
+        {
+          id: 'accessibility-design',
+          title: 'Accessibility in Design',
+          description: 'Design inclusive interfaces that work for users with disabilities.',
+          difficulty: 'Intermediate',
+          estimatedTime: '1-2 weeks',
+          resources: 10
+        }
+      ],
+      completionRate: '81%',
+      learners: '1.3M',
+      rating: 4.7,
+      reviews: 7650,
+      lastUpdated: 'January 2024',
+      category: 'Design',
+      skillsGained: [
+        'Figma', 'Adobe XD', 'Prototyping', 'User Research', 'Design Systems', 'Usability Testing', 'Accessibility', 'Visual Design'
+      ],
+      relatedRoadmaps: [
+        { id: 'frontend', title: 'Frontend Development Roadmap', difficulty: 'Intermediate' },
+        { id: 'mobile-development', title: 'Mobile Development Roadmap', difficulty: 'Intermediate' },
+        { id: 'product-manager', title: 'Product Manager Roadmap', difficulty: 'Intermediate' }
+      ],
+      stats: {
+        timeSpent: '140 hours',
+        exercisesDone: '50 of 70',
+        quizScore: '89%'
+      }
     }
   };
 
