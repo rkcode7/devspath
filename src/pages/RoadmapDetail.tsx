@@ -13,7 +13,7 @@ import { ResourceCard } from '@/components/ResourceCard';
 import { getResourcesByTopic, platformLogos } from '@/data/resourcesDatabase';
 
 const RoadmapDetail = () => {
-  const { id } = useParams();
+  const { roadmapId } = useParams();
   const [isCompleted, setIsCompleted] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [userProgress, setUserProgress] = useState(60);
@@ -825,7 +825,7 @@ const RoadmapDetail = () => {
     }
   };
 
-  const roadmap = roadmapData[id as keyof typeof roadmapData] || roadmapData['frontend'];
+  const roadmap = roadmapData[roadmapId as keyof typeof roadmapData] || roadmapData['frontend'];
 
   // Add PDF data preparation
   const preparePdfData = () => {
