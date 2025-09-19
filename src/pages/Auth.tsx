@@ -2,65 +2,54 @@ import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Eye, EyeOff, Mail, Lock, User, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Github, MessageSquare } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
 
 const Auth = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string>('');
-  const { signIn, signUp, user } = useAuth();
+  const { signInWithGoogle, signInWithGithub, signInWithDiscord, user } = useAuth();
 
   // Redirect if already authenticated
   if (user) {
     return <Navigate to="/" replace />;
   }
 
-  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleOAuthSignIn = async (provider: 'google' | 'github' | 'discord') => {
     setIsLoading(true);
     setError('');
 
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
+    let result;
+    switch (provider) {
+      case 'google':
+        result = await signInWithGoogle();
+        break;
+      case 'github':
+        result = await signInWithGithub();
+        break;
+      case 'discord':
+        result = await signInWithDiscord();
+        break;
+    }
 
-    const { error } = await signIn(email, password);
-
-    if (error) {
-      setError(error.message);
-    } else {
-      toast.success('Welcome back!');
+    if (result.error) {
+      setError(result.error.message);
+      toast.error(`Failed to sign in with ${provider}`);
     }
 
     setIsLoading(false);
   };
 
-  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
-
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    const fullName = formData.get('fullName') as string;
-
-    const { error } = await signUp(email, password, fullName);
-
-    if (error) {
-      setError(error.message);
-    } else {
-      toast.success('Account created! Check your email to verify your account.');
-    }
-
-    setIsLoading(false);
-  };
+  const GoogleIcon = () => (
+    <svg className="w-5 h-5" viewBox="0 0 24 24">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+    </svg>
+  );
 
   return (
     <div className="min-h-screen bg-[var(--gradient-secondary)] flex items-center justify-center p-4">
@@ -72,154 +61,71 @@ const Auth = () => {
           </Link>
           <div className="flex items-center justify-center space-x-2 mb-2">
             <div className="w-10 h-10 bg-[var(--gradient-primary)] rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">D</span>
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+              </svg>
             </div>
-            <span className="text-2xl font-bold text-foreground">DevPath</span>
+            <span className="text-2xl font-bold text-foreground">CodePath</span>
           </div>
-          <p className="text-muted-foreground">Your journey to tech mastery starts here</p>
+          <p className="text-muted-foreground">Your journey to coding mastery starts here</p>
         </div>
 
         <Card className="bg-card/80 backdrop-blur-sm border-border/50">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center">Welcome</CardTitle>
+            <CardTitle className="text-2xl text-center">Welcome to CodePath</CardTitle>
             <CardDescription className="text-center">
-              Sign in to your account or create a new one
+              Sign in with your preferred platform to continue
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="signin">Sign In</TabsTrigger>
-                <TabsTrigger value="signup">Sign Up</TabsTrigger>
-              </TabsList>
+          <CardContent className="space-y-4">
+            {error && (
+              <Alert className="border-destructive/50 bg-destructive/10">
+                <AlertDescription className="text-destructive">
+                  {error}
+                </AlertDescription>
+              </Alert>
+            )}
 
-              {error && (
-                <Alert className="mb-4 border-destructive/50 bg-destructive/10">
-                  <AlertDescription className="text-destructive">
-                    {error}
-                  </AlertDescription>
-                </Alert>
-              )}
+            <div className="space-y-3">
+              <Button
+                onClick={() => handleOAuthSignIn('google')}
+                disabled={isLoading}
+                variant="outline"
+                className="w-full h-12 text-base"
+              >
+                <GoogleIcon />
+                Continue with Google
+              </Button>
 
-              <TabsContent value="signin">
-                <form onSubmit={handleSignIn} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signin-email"
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        className="pl-10"
-                        required
-                        disabled={isLoading}
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signin-password">Password</Label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signin-password"
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Enter your password"
-                        className="pl-10 pr-10"
-                        required
-                        disabled={isLoading}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
-                      >
-                        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                      </button>
-                    </div>
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={isLoading}
-                    variant="gradient"
-                  >
-                    {isLoading ? 'Signing in...' : 'Sign In'}
-                  </Button>
-                </form>
-              </TabsContent>
+              <Button
+                onClick={() => handleOAuthSignIn('github')}
+                disabled={isLoading}
+                variant="outline"
+                className="w-full h-12 text-base"
+              >
+                <Github className="w-5 h-5" />
+                Continue with GitHub
+              </Button>
 
-              <TabsContent value="signup">
-                <form onSubmit={handleSignUp} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-name">Full Name</Label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signup-name"
-                        name="fullName"
-                        type="text"
-                        placeholder="Enter your full name"
-                        className="pl-10"
-                        required
-                        disabled={isLoading}
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signup-email"
-                        name="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        className="pl-10"
-                        required
-                        disabled={isLoading}
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input
-                        id="signup-password"
-                        name="password"
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Create a password"
-                        className="pl-10 pr-10"
-                        required
-                        disabled={isLoading}
-                        minLength={6}
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
-                      >
-                        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                      </button>
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      Password must be at least 6 characters long
-                    </p>
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={isLoading}
-                    variant="gradient"
-                  >
-                    {isLoading ? 'Creating account...' : 'Create Account'}
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
+              <Button
+                onClick={() => handleOAuthSignIn('discord')}
+                disabled={isLoading}
+                variant="outline"
+                className="w-full h-12 text-base"
+              >
+                <MessageSquare className="w-5 h-5" />
+                Continue with Discord
+              </Button>
+            </div>
+
+            <div className="text-center text-sm text-muted-foreground">
+              <p>
+                By signing in, you agree to our{' '}
+                <a href="#" className="text-primary hover:underline">Terms of Service</a>
+                {' '}and{' '}
+                <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>

@@ -101,9 +101,11 @@ export const Header = ({ children, showNav = true }: HeaderProps) => {
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-[var(--gradient-primary)] rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">D</span>
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                </svg>
               </div>
-              <span className="text-xl font-bold text-foreground">DevPath</span>
+              <span className="text-xl font-bold text-foreground">CodePath</span>
             </Link>
             {showNav && <Navigation />}
           </div>
@@ -139,9 +141,11 @@ export const Header = ({ children, showNav = true }: HeaderProps) => {
                   <nav className="flex flex-col space-y-4">
                     <Link to="/" className="flex items-center space-x-2">
                       <div className="w-8 h-8 bg-[var(--gradient-primary)] rounded-lg flex items-center justify-center">
-                        <span className="text-primary-foreground font-bold text-sm">D</span>
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
                       </div>
-                      <span className="text-xl font-bold text-foreground">DevPath</span>
+                      <span className="text-xl font-bold text-foreground">CodePath</span>
                     </Link>
                     
                     <div className="flex flex-col space-y-3 pt-4">
