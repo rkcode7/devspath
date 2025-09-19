@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { RoadmapManager } from '@/components/admin/RoadmapManager';
+import { AdminOverview } from '@/components/admin/AdminOverview';
 import { 
   Settings, 
   Users, 
@@ -21,7 +23,9 @@ import {
   UserPlus,
   FileText,
   Server,
-  MessageSquare
+  MessageSquare,
+  Plus,
+  Edit
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -30,6 +34,7 @@ const Admin = () => {
   const { user } = useAuth();
   const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState('overview');
+  const [showRoadmapEditor, setShowRoadmapEditor] = useState(false);
 
   // Mock admin stats
   const stats = [
@@ -97,6 +102,14 @@ const Admin = () => {
     }
   };
 
+  const handleCreateRoadmap = () => {
+    setActiveTab('roadmaps');
+    setShowRoadmapEditor(true);
+  };
+
+  const handleManageRoadmaps = () => {
+    setActiveTab('roadmaps');
+  };
   return (
     <div className="min-h-screen bg-background">
       <Header>
@@ -160,8 +173,9 @@ const Admin = () => {
 
         {/* Admin Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview">Overview</TabsTrigger>
+            <TabsTrigger value="roadmaps">Roadmaps</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
@@ -169,70 +183,14 @@ const Admin = () => {
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
-            <div className="grid lg:grid-cols-2 gap-6">
-              {/* Recent Activity */}
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Activity className="w-5 h-5" />
-                    Recent Activity
-                  </CardTitle>
-                  <CardDescription>Latest user activities and system events</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {recentActivities.map((activity) => {
-                      const Icon = getActivityIcon(activity.type);
-                      return (
-                        <div key={activity.id} className="flex items-center space-x-3 p-3 rounded-lg bg-accent/10">
-                          <Icon className="w-4 h-4 text-primary" />
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-foreground">{activity.user}</p>
-                            <p className="text-sm text-muted-foreground">{activity.action}</p>
-                          </div>
-                          <div className="text-xs text-muted-foreground">
-                            <Clock className="w-3 h-3 inline mr-1" />
-                            {activity.time}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
+            <AdminOverview 
+              onCreateRoadmap={handleCreateRoadmap}
+              onManageRoadmaps={handleManageRoadmaps}
+            />
+          </TabsContent>
 
-              {/* System Health */}
-              <Card className="bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Server className="w-5 h-5" />
-                    System Health
-                  </CardTitle>
-                  <CardDescription>Monitor system services and uptime</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {systemHealth.map((service, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-accent/10">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-2 h-2 rounded-full ${
-                            service.status === 'healthy' ? 'bg-green-500' : 
-                            service.status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'
-                          }`}></div>
-                          <span className="font-medium text-foreground">{service.service}</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Badge variant="outline" className={getStatusColor(service.status)}>
-                            {service.status}
-                          </Badge>
-                          <span className="text-sm text-muted-foreground">{service.uptime}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+          <TabsContent value="roadmaps" className="space-y-6">
+            <RoadmapManager />
           </TabsContent>
 
           <TabsContent value="users" className="space-y-6">
