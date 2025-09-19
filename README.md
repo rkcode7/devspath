@@ -1,4 +1,15 @@
-# Welcome to your Lovable project
+# CodePath - Your Coding Journey Roadmap
+
+A comprehensive learning platform designed for developers at every stage of their coding journey. Master programming skills through structured roadmaps, hands-on projects, and curated resources.
+
+## Features
+
+- **OAuth 2.0 Authentication**: Sign in with Google, GitHub, or Discord
+- **Structured Learning Paths**: Industry-validated roadmaps for various tech careers
+- **Interactive Learning**: Hands-on exercises, quizzes, and coding challenges
+- **Progress Tracking**: Monitor your learning journey and achievements
+- **Comprehensive Resources**: Curated content from top educational platforms
+- **Community Features**: Connect with fellow learners and share progress
 
 ## Project info
 

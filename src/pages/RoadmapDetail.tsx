@@ -602,9 +602,11 @@ const RoadmapDetail = () => {
               </Link>
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">D</span>
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                  </svg>
                 </div>
-                <span className="text-xl font-bold text-white">DevPath</span>
+                <span className="text-xl font-bold text-white">CodePath</span>
               </div>
             </div>
             

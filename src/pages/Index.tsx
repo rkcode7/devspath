@@ -136,11 +136,11 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-7xl font-bold text-foreground mb-6">
-            Your Journey to
-            <span className="bg-[var(--gradient-primary)] bg-clip-text text-transparent"> Tech Mastery</span>
+            Your Path to
+            <span className="bg-[var(--gradient-primary)] bg-clip-text text-transparent"> Coding Excellence</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-            Structured learning paths, comprehensive resources, and hands-on projects to transform you from beginner to professional developer.
+            Structured learning paths, comprehensive resources, and hands-on coding projects to transform you from beginner to professional developer.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link to="/roadmaps">
@@ -430,7 +430,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Why Choose DevPath?
+              Why Choose CodePath?
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Comprehensive learning platform designed for developers at every stage of their journey
@@ -506,12 +506,14 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">D</span>
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                  </svg>
                 </div>
-                <span className="text-xl font-bold text-white">DevPath</span>
+                <span className="text-xl font-bold text-white">CodePath</span>
               </div>
               <p className="text-slate-400 mb-4">
-                Your comprehensive guide to becoming a professional developer.
+                Your comprehensive guide to mastering programming and development.
               </p>
               <div className="flex space-x-4">
                 <Button size="sm" variant="ghost" className="text-slate-400 hover:text-white p-2">
@@ -558,7 +560,7 @@ const Index = () => {
           </div>
           
           <div className="border-t border-slate-800/50 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 DevPath. All rights reserved. Built with ❤️ for developers worldwide.</p>
+            <p>&copy; 2024 CodePath. All rights reserved. Built with ❤️ for developers worldwide.</p>
           </div>
         </div>
       </footer>
